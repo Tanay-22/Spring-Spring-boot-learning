@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="BasicMVCProject:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>BasicMVCProject</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="BasicMVCProject-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="BasicMVCProject:war exploded" />
+    </root>
+  </artifact>
+</component>
