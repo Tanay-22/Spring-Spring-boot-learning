@@ -8,12 +8,13 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Set Property</title>
+  <title>Get Property</title>
 </head>
 <body>
-    <jsp:useBean id="user" class="com.example.beans.User" scope="session"></jsp:useBean>
-    <jsp:setProperty name="user" property="firstName" value="Mr."/>
-    <jsp:setProperty name="user" property="lastName" value="India"/>
+<jsp:useBean id="user" class="com.example.beans.User" scope="page"></jsp:useBean>
+
+First Name : <jsp:getProperty name="user" property="firstName"/><br/>
+Last Name : <jsp:getProperty name="user" property="lastName"/>
 
 </body>
 </html>

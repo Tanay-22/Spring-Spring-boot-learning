@@ -12,7 +12,8 @@
 </head>
 <body>
     <jsp:useBean id="user" class="com.example.beans.User" scope="session"></jsp:useBean>
-
+    <jsp:setProperty name="user" property="*" />
+    <%-- * - sets all properties with one-to-one correspondence --%>
     First Name : <jsp:getProperty name="user" property="firstName"/><br/>
     Last Name : <jsp:getProperty name="user" property="lastName"/>
 

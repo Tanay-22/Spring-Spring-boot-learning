@@ -1,0 +1,23 @@
+ID: is used to identify the bean in the specified scope.
+
+SCOPE: represents the scope of the bean. It may be page, request, session or application.
+        The default scope is page.
+
+        1. page: specifies that you can use this bean within the JSP page. The default scope is page.
+
+        2.request: specifies that you can use this bean from any JSP page that processes the same request.
+            It has wider scope than page.
+
+        3.session: specifies that you can use this bean from any JSP page in the same session whether
+            processes the same request or not. It has wider scope than request.
+
+        4.application: specifies that you can use this bean from any JSP page in the same application.
+          It has wider scope than session.
+
+CLASS: instantiates the specified bean class (i.e. creates an object of the bean class)
+        but it must have no-arg or no constructor and must not be abstract.
+
+TYPE: provides the bean a data type if the bean already exists in the scope.
+        It is mainly used with class or beanName attribute. If you use it without class or beanName, no bean is instantiated.
+
+beanName: instantiates the bean using the java.beans.Beans.instantiate() method.
