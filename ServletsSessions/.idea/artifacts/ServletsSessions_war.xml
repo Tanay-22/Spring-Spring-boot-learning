@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="ServletsSessions:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>ServletsSessions</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="ServletsSessions-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="ServletsSessions:war exploded" />
+    </root>
+  </artifact>
+</component>
