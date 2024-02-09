@@ -12,11 +12,19 @@ public class SiteController extends HttpServlet
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
+        String action = request.getParameter("action");
 
+        switch (action)
+        {
+            case "login" :
+                request.getRequestDispatcher("login.jsp").forward(request, response);
+                break;
+            default :
+                break;
+        }
     }
 
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+    public void authenticate(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
@@ -31,11 +39,26 @@ public class SiteController extends HttpServlet
             response.addCookie(cUsername);*/
 
             newSession.setAttribute("username", username);
-            response.sendRedirect("memberArea.jsp");
-
-
+            String encode = response.encodeRedirectURL(request.getContextPath());
+            response.sendRedirect(encode + "/MemberAreaController?action=memberArea");
         }
         else
-            response.sendRedirect("login.jsp");
+            response.sendRedirect(request.getContextPath() + "/SiteController?action=login");
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+    {
+        String action = request.getParameter("action");
+
+        switch (action)
+        {
+            case "loginSubmit" :
+                authenticate(request, response);
+                break;
+
+            default:
+                break;
+        }
     }
 }
