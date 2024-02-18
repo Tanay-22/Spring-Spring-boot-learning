@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class Engine
 {
-    String type;
+    public String type;
 
     public Engine()
     {
