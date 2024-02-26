@@ -1,0 +1,29 @@
+Lession 4 - Aspect Oriented Programming
+
+Aspect-Oriented Programming (AOP) is a programming paradigm that aims to increase modularity by allowing
+the separation of cross-cutting concerns. Cross-cutting concerns are aspects of a program that affect
+multiple modules or layers, such as logging, security, transaction management, and error handling.
+These concerns tend to "cut across" the typical modularization of the program.
+
+Dependencies -->
+* spring-aop
+* spring-aspects
+
+
+@Before --> used to specify advice, which are actions to be taken before a method is invoked.
+            This means that the code annotated with @Before will be executed prior to the execution
+            of the target method. It allows developers to intercept method calls and execute additional
+            behavior before the actual method logic runs.
+
+@After --> should be executed after a method is invoked. This means that the code annotated with @After
+            will be executed once the target method completes its execution, regardless of its outcome
+            (i.e., whether it throws an exception or returns normally).
+
+@Around --> used to specify advice that surrounds a method invocation. Unlike @Before and @After,
+            @Around advice has full control over the method invocation, including the ability to
+            proceed with the method execution or to completely bypass it.
+
+ProceedingJoinPoint --> This interface is particularly used within @Around advice to proceed with the execution
+            of the intercepted method. It allows the aspect to control when and if the intercepted
+            method should be executed, as well as to access information about the method being intercepted.
+
