@@ -1,6 +1,11 @@
 package com.tanay.learnspringframework.game;
 
-public class SuperContraGame
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
+
+@Component
+@Qualifier("contra")
+public class SuperContraGame implements GamingConsole
 {
     public void up()
     {
