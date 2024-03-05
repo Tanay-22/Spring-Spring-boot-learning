@@ -1,9 +1,10 @@
 package com.tanay.businesscalculationservice.dataservices;
 
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
-@Component
+//@Component
+@Repository
 @Qualifier("mysql")
 public class MySQLDataService implements DataService
 {

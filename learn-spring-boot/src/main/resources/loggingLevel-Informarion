@@ -1,0 +1,31 @@
+Logging levels are labels used to categorize the severity or urgency of each message logged by
+an application. They allow administrators to distinguish messages that indicate normal functioning
+from those that indicate potential issues and allow for dynamic control over log output volume.
+
+Computer systems often utilize logging functions to record events within applications.
+These logs conform to the Syslog standard, which defines facility codes and levels for each
+logged event.
+
+INFO-
+    level messages are the most prevalent, highlighting events within a system that is crucial
+    for its business purposes, such as starting or stopping services or resources being created,
+    accessed, updated or deleted - these could include events such as service start/stop events
+    as well as updates/deletes etc.
+ERROR-
+    level messages are similar to INFO-level events, but their purpose is different -
+    they represent situations which prevent an application from performing its usual
+    operations normally. While work can continue normally despite this occurrence,
+    its source should be investigated immediately.
+WARN-
+    level messages are less frequent but still represent error conditions that prevent an
+    application from functioning as it should. Although the application still functions,
+    its existence should prompt developers or operations personnel to attend to it immediately.
+Critical-
+    level messages are much rarer and indicate a severe problem that cannot continue operating
+    normally. While the application can continue functioning normally, their presence should
+    prompt dev, ops and support teams to take immediate action in response.
+FATAL-
+    level messages are rare and intended to indicate an error event so serious it will preclude
+    an application from operating normally. Although an application can continue functioning
+    normally during such an incident, its occurrence should be investigated immediately to
+    keep operations running smoothly.
