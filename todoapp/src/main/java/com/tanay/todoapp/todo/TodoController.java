@@ -21,16 +21,19 @@ import java.util.List;
 public class TodoController
 {
     private TodoService todoService;
+    private TodoRepository todoRepository;
 
-    public TodoController(TodoService todoService)
+    public TodoController(TodoService todoService, TodoRepository todoRepository)
     {
         this.todoService = todoService;
+        this.todoRepository = todoRepository;
     }
 
     @RequestMapping("list-todos")
-    public String listAllTodos(ModelMap modelMap)
+    public String getLoggedInUsername(ModelMap modelMap)
     {
-        List<Todo> todos =  todoService.findByUsername("DogRaj");
+        String username = (String)modelMap.get("name");
+        List<Todo> todos =  todoService.findByUsername(username);
         modelMap.addAttribute("todos", todos);
 
         return "listTodos";

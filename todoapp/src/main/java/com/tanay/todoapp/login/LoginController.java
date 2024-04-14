@@ -1,3 +1,4 @@
+/*
 package com.tanay.todoapp.login;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +23,7 @@ public class LoginController
         return "welcome";
     }
 
-    /*@RequestMapping(value = "/", method = RequestMethod.POST)
+    @RequestMapping(value = "/", method = RequestMethod.POST)
     public String goToWelcomePage(@RequestParam String name,
                                   @RequestParam String password, ModelMap modelMap)
     {
@@ -34,5 +35,6 @@ public class LoginController
         }
         modelMap.put("errorMsg", "Wrong Credentials");
         return "login";
-    }*/
+    }
 }
+*/
