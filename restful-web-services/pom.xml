@@ -56,8 +56,19 @@
 <!--            <artifactId>jackson-dataformat-xml</artifactId>-->
 <!--        </dependency>-->
         <dependency>
+<!--            Contains EntityModel in which we can wrap other fields like links to the API-->
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-hateoas</artifactId>
+        </dependency>
+        <dependency>
+<!--            To check the mapping, health of beans-->
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+        <dependency>
+<!--            To explore the API. Go to '/'  -->
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-rest-hal-explorer</artifactId>
         </dependency>
     </dependencies>
 
