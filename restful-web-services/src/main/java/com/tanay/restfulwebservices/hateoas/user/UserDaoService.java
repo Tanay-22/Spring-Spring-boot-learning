@@ -1,6 +1,7 @@
-//package com.tanay.restfulwebservices.user;
+//package com.tanay.restfulwebservices.hateoas.user;
 //
 //import org.springframework.stereotype.Service;
+//
 //import java.time.LocalDate;
 //import java.util.ArrayList;
 //import java.util.List;
@@ -11,20 +12,13 @@
 //{
 //    // DAO - data access object
 //
-//    private static List<User> users = new ArrayList<>();
 //    private static int count = 1;
-//
-//    static
-//    {
-//        users.add(new User(count++,"Adam", LocalDate.now().minusYears(30)));
-//        users.add(new User(count++,"Eve", LocalDate.now().minusYears(25)));
-//        users.add(new User(count++,"Jim", LocalDate.now().minusYears(20)));
-//    }
 //
 //    public List<User> findAll()
 //    {
 //        return users;
 //    }
+//
 //
 //    public User findOne(int id)
 //    {

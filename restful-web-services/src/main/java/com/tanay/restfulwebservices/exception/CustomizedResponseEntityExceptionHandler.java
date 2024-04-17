@@ -1,6 +1,6 @@
 package com.tanay.restfulwebservices.exception;
 
-import com.tanay.restfulwebservices.user.UserNotFoundException;
+import com.tanay.restfulwebservices.hateoas.user.UserNotFoundException;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;

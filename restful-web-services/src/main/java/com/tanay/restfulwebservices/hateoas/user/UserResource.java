@@ -1,12 +1,13 @@
 //package com.tanay.restfulwebservices.hateoas.user;
 //
-//import com.tanay.restfulwebservices.hateoas.user.User;
-//import com.tanay.restfulwebservices.hateoas.user.UserDaoService;
-//import com.tanay.restfulwebservices.hateoas.user.UserNotFoundException;
 //import jakarta.validation.Valid;
+//import org.springframework.hateoas.EntityModel;
+//import org.springframework.hateoas.server.mvc.WebMvcLinkBuilder;
 //import org.springframework.http.ResponseEntity;
 //import org.springframework.web.bind.annotation.*;
 //import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
+//
+//import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.*;
 //
 //import java.net.URI;
 //import java.util.List;
@@ -28,13 +29,19 @@
 //    }
 //
 //    @GetMapping("/users/{id}")
-//    public User retrieveUserById(@PathVariable int id )
+//    public EntityModel<User> retrieveUserById(@PathVariable int id )
 //    {
 //        User user = service.findOne(id);
 //
 //        if(user == null)
 //            throw new UserNotFoundException("id : " + id);
-//        return user;
+//
+//        EntityModel<User> model = EntityModel.of(user);
+//
+//        WebMvcLinkBuilder link = linkTo(methodOn(this.getClass()).retrieveAllUsers());
+//        model.add(link.withRel("all-users"));
+//
+//        return model;
 //    }
 //
 //    @PostMapping("/users")
