@@ -88,6 +88,7 @@ const ListTodoComponent = () =>
                                     Delete
                                 </button>}
                             </td>
+                            <td>{todo.targetDate.toDateString()}</td>
                         </tr>
                     ))}
 

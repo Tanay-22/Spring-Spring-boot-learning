@@ -4,6 +4,8 @@ import {retrieveHelloWorldBean, retrieveHelloWorldPathVariable} from "./api/Hell
 import {useAuthContext} from "./security/AuthContext";
 
 
+import React from 'react';
+import {Link, useParams} from "react-router-dom";
 
 const WelcomeComponent = () =>
 {

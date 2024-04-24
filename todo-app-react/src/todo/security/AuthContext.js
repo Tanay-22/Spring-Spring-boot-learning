@@ -16,6 +16,8 @@ export default function AuthProvider({ children })
     const [token, setToken] = useState(null);
 
     /*function login(username, password)
+
+    function login(username, password)
     {
         if(username === "DogRaj" && password === "Mr. India")
         {
@@ -98,6 +100,9 @@ export default function AuthProvider({ children })
             return false;
         }
 
+            setIsAuthenticated(false);
+            return false;
+        }
     }
 
     function logout()
