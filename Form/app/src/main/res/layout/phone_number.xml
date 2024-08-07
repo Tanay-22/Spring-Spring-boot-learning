@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Phone : " />
+
+    <EditText
+            android:id="@+id/phoneNumberEditText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="phone"
+            android:hint="Enter a number"
+            android:maxLength="10"
+            android:layout_weight="1" />
+
+    <TextView
+            android:id="@+id/validationTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="red"
+            android:visibility="gone"
+            android:text="Enter a valid number" />
+</LinearLayout>
