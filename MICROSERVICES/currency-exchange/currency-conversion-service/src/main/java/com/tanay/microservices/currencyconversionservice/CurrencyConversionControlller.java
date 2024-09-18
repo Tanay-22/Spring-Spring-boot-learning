@@ -1,5 +1,6 @@
 package com.tanay.microservices.currencyconversionservice;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -13,6 +14,9 @@ import java.util.Map;
 @RestController
 public class CurrencyConversionControlller
 {
+    @Autowired
+    private CurrencyExchangeProxy proxy;
+
     @GetMapping("/currency-conversion/from/{from}/to/{to}/quantity/{quantity}")
     public CurrencyConversion calulateCurrencyConversion(@PathVariable String from,
                                                          @PathVariable String to,
@@ -32,6 +36,22 @@ public class CurrencyConversionControlller
         return new CurrencyConversion(currencyConversion.getId(), from, to, quantity,
                 currencyConversion.getConversionMultiple(),
                 quantity.multiply(currencyConversion.getConversionMultiple()),
-                currencyConversion.getEnvironment());
+                currencyConversion.getEnvironment() + " rest template");
+    }
+
+
+    @GetMapping("/currency-conversion-feign/from/{from}/to/{to}/quantity/{quantity}")
+    public CurrencyConversion calulateCurrencyConversionFeign(@PathVariable String from,
+                                                         @PathVariable String to,
+                                                         @PathVariable BigDecimal quantity)
+    {
+
+
+        CurrencyConversion currencyConversion = proxy.retrieveExchangeValue(from, to);
+
+        return new CurrencyConversion(currencyConversion.getId(), from, to, quantity,
+                currencyConversion.getConversionMultiple(),
+                quantity.multiply(currencyConversion.getConversionMultiple()),
+                currencyConversion.getEnvironment() + " feign");
     }
 }
