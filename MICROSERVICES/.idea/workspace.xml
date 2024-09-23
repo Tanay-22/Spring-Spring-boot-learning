@@ -9,16 +9,6 @@
       <change afterPath="$PROJECT_DIR$/git-localconfig-repo/limits-service-qa.properties" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/git-localconfig-repo/microservice-x.properties" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/git-localconfig-repo/microservice-y.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../proxyforproject2/src/main/java/com/tanay/proxyforproject2/config/RoutesConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../proxyforproject2/src/main/java/com/tanay/proxyforproject2/config/WebClientConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../proxyforproject2/src/main/java/com/tanay/proxyforproject2/handler/ProductHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../proxyforproject2/src/main/java/com/tanay/proxyforproject2/model/Product.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../proxyforproject2/src/main/java/com/tanay/proxyforproject2/proxy/ProductProxy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../proxyforproject2/src/main/java/com/tanay/proxyforproject2/service/ProductService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../reactive-spring-2/src/main/java/com/tanay/reactivespring2/config/RoutesConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../reactive-spring-2/src/main/java/com/tanay/reactivespring2/handler/ProductHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../reactive-spring-2/src/main/java/com/tanay/reactivespring2/model/Product.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../reactive-spring-2/src/main/java/com/tanay/reactivespring2/service/ProductService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,7 +40,7 @@
     "Spring Boot.SpringCloudConfigServerApplication.executor": "Run",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Javed/MICROSERVICES/git-localconfig-repo",
+    "last_opened_file_path": "C:/Javed/MICROSERVICES",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -99,6 +89,7 @@
       <option name="presentableId" value="Default" />
       <updated>1726497563947</updated>
       <workItem from="1726497565060" duration="3054000" />
+      <workItem from="1726866236220" duration="12000" />
     </task>
     <servers />
   </component>
