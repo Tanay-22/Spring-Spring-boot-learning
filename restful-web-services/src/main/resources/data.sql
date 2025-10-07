@@ -12,5 +12,3 @@ values
     (2003, 'Storm Beaker', 1002),
     (2004, 'Bamdal ke upar udta hu mai Hui hui ', 1004),
     (2005, 'Ninja Doge', 1001);
-
-
