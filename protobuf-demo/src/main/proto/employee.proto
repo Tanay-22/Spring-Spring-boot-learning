@@ -1,0 +1,59 @@
+syntax="proto3";
+
+option java_multiple_files = true;
+option java_package = "com.tanay.protobufdemo";
+option java_outer_classname = "EmployeeProto";
+
+import "google/protobuf/timestamp.proto";
+
+package com.tanay.protobufdemo;
+
+message Employee
+{
+    int32 id = 1;
+    string name = 2;
+    double salary = 3;
+    repeated Department departments = 4;    // === List<Department>
+    map<string, string> addressMap = 5;
+    bool isActive = 6;
+    bytes profilePicture = 7;   // byte[]
+    google.protobuf.Timestamp joinDate = 8;
+}
+
+message Department
+{
+    int32 id = 1;
+    string name = 2;
+}
+
+message EmployeeDTO
+{
+    int32 id = 1;
+    string name = 2;
+    double salary = 3;
+    repeated Department departments = 4;    // === List<Department>
+    map<string, string> addressMap = 5;
+    bool isActive = 6;
+    bytes profilePicture = 7;   // byte[]
+    google.protobuf.Timestamp joinDate = 8;
+}
+
+message EmployeeList
+{
+    repeated Employee employees = 1;
+}
+
+message Empty
+{
+
+}
+
+service EmployeeService
+{
+    rpc getEmployee(EmployeeDTO) returns (Employee);
+
+    rpc addEmployee(EmployeeDTO) returns (Employee);
+
+    rpc getAllEmployee(Empty) returns (EmployeeList);
+
+}
