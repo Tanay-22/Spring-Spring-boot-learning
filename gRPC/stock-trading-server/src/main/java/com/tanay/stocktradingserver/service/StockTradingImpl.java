@@ -1,8 +1,6 @@
 package com.tanay.stocktradingserver.service;
 
-import com.tanay.stocktrading.StockRequest;
-import com.tanay.stocktrading.StockResponse;
-import com.tanay.stocktrading.StockTradingServiceGrpc;
+import com.tanay.stocktrading.*;
 import com.tanay.stocktradingserver.entity.Stock;
 import com.tanay.stocktradingserver.repository.StockRepository;
 import io.grpc.stub.StreamObserver;
@@ -64,5 +62,44 @@ public class StockTradingImpl extends StockTradingServiceGrpc.StockTradingServic
         }
 
         responseObserver.onCompleted();
+    }
+
+    @Override
+    public StreamObserver<StockOrder> bulkStockOrder(StreamObserver<OrderSummary> responseObserver)
+    {
+        return new StreamObserver<StockOrder>()
+        {
+            private int totalOrders = 0;
+            private double totalAmount = 0;
+            private int successCount = 0;
+
+            @Override
+            public void onNext(StockOrder stockOrder)
+            {
+                totalOrders++;
+                totalAmount += stockOrder.getPrice() * stockOrder.getQuantity();
+                successCount++;
+                System.out.println("Received Order : " + stockOrder);
+            }
+
+            @Override
+            public void onError(Throwable throwable)
+            {
+                System.out.println("Server unable to process the request : " + throwable.getMessage());
+            }
+
+            @Override
+            public void onCompleted()
+            {
+                OrderSummary summary = OrderSummary.newBuilder()
+                        .setTotalOrders(totalOrders)
+                        .setTotalAmount(totalAmount)
+                        .setSuccessCount(successCount)
+                        .build();
+
+                responseObserver.onNext(summary);
+                responseObserver.onCompleted();
+            }
+        };
     }
 }

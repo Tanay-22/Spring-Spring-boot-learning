@@ -22,7 +22,8 @@ public class StockTradingClientApplication implements CommandLineRunner
     {
 //        System.out.println("Grpc client response : "+ stockClientService.getStockPrice("AMZN"));
 
-        stockClientService.subscribeStockPrice("AMZN");
+//        stockClientService.subscribeStockPrice("AMZN");
 
+        stockClientService.placeBulkOrders();
     }
 }
