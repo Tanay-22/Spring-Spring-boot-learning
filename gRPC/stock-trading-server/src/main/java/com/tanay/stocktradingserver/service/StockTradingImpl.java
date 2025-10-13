@@ -8,6 +8,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.grpc.server.service.GrpcService;
 
 import java.time.Instant;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
@@ -67,7 +69,7 @@ public class StockTradingImpl extends StockTradingServiceGrpc.StockTradingServic
     @Override
     public StreamObserver<StockOrder> bulkStockOrder(StreamObserver<OrderSummary> responseObserver)
     {
-        return new StreamObserver<StockOrder>()
+        return new StreamObserver<>()
         {
             private int totalOrders = 0;
             private double totalAmount = 0;
@@ -98,6 +100,48 @@ public class StockTradingImpl extends StockTradingServiceGrpc.StockTradingServic
                         .build();
 
                 responseObserver.onNext(summary);
+                responseObserver.onCompleted();
+            }
+        };
+    }
+
+    @Override
+    public StreamObserver<StockOrder> liveTrading(StreamObserver<TradeStatus> responseObserver)
+    {
+        return new StreamObserver<>()
+        {
+            @Override
+            public void onNext(StockOrder stockOrder)
+            {
+                System.out.println("Received Order : " + stockOrder);
+
+                String status = "EXECUTED";
+                String message = "Order placed successfully";
+
+                if (stockOrder.getQuantity() <= 0)
+                {
+                    status = "FAILED";
+                    message = "Invalid Quantity";
+                }
+                TradeStatus tradeStatus = TradeStatus.newBuilder()
+                        .setOrderId(stockOrder.getOrderId())
+                        .setStatus(status)
+                        .setMessage(message)
+                        .setTimestamp(LocalDateTime.now().format(DateTimeFormatter.ISO_DATE))
+                        .build();
+
+                responseObserver.onNext(tradeStatus);
+            }
+
+            @Override
+            public void onError(Throwable throwable)
+            {
+                System.err.println("ERROR : " + throwable.getMessage());
+            }
+
+            @Override
+            public void onCompleted()
+            {
                 responseObserver.onCompleted();
             }
         };

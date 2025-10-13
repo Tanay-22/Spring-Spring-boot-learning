@@ -24,6 +24,7 @@ public class StockTradingClientApplication implements CommandLineRunner
 
 //        stockClientService.subscribeStockPrice("AMZN");
 
-        stockClientService.placeBulkOrders();
+//        stockClientService.placeBulkOrders();
+        stockClientService.startLiveTrading();
     }
 }
